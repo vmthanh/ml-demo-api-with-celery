@@ -1,0 +1,13 @@
+.git
+.idea
+.cache
+.DS_Store
+.ipynb_checkpoints
+
+__pycache__
+.vscode
+*.pyc
+*.pyo
+*.pyd
+
+repo/logs

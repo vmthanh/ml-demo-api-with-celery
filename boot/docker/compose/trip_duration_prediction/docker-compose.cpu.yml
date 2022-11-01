@@ -1,0 +1,17 @@
+version: "2.3"
+services:
+
+  worker:
+    runtime: runc
+
+  worker_0:
+    runtime: runc
+
+  worker_1:
+    runtime: runc
+
+  worker_2:
+    runtime: runc
+
+  worker_3:
+    runtime: runc

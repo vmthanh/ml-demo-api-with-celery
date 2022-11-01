@@ -1,0 +1,26 @@
+version: "2.3"
+services:
+
+  web:
+    volumes:
+      - "${DC_UNIVERSE}:${WEB_VM_CODE}"
+
+  worker:
+    volumes:
+      - "${DC_UNIVERSE}:${WORKER_VM_CODE}"
+
+  worker_0:
+    volumes:
+      - "${DC_UNIVERSE}:${WORKER_VM_CODE}"
+
+  worker_1:
+    volumes:
+      - "${DC_UNIVERSE}:${WORKER_VM_CODE}"
+
+  worker_2:
+    volumes:
+      - "${DC_UNIVERSE}:${WORKER_VM_CODE}"
+
+  worker_3:
+    volumes:
+      - "${DC_UNIVERSE}:${WORKER_VM_CODE}"

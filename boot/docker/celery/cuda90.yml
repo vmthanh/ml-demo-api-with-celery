@@ -1,0 +1,22 @@
+
+name: cuda90
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - six
+  - typing
+  - pytz
+  - numpy
+  - scipy
+  - scikit-learn
+  - pip:
+    - redis==3.3.11
+    - celery==4.4.0
+    - uvicorn==0.18.2
+    - fastapi==0.79.0
+    - pydantic==1.9.0
+    - loguru==0.6.0
+    - boto3

@@ -1,0 +1,8 @@
+uvicorn[standard]
+gunicorn
+fastapi==0.79.0
+pydantic==1.9.0
+loguru==0.6.0
+typing==3.7.4.1
+redis==3.3.11
+celery==4.4.0

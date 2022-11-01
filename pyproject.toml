@@ -1,0 +1,31 @@
+[tool.pylint.messages_control]
+
+disable = [
+    "missing-function-docstring",
+    "missing-final-newline",
+    "missing-class-docstring",
+    "missing-module-docstring",
+    "invalid-name",
+    "too-few-public-methods",
+    "import-error",
+    "line-too-long",
+    "reportMissingImports",
+    "useless-object-inheritance",
+    "unknown-option-value",
+    "super-with-arguments",
+    "too-many-locals",
+    "cyclic-import",
+    "logging-fstring-interpolation",
+    "unused-import",
+]
+[tool.pylint.'MESSAGES CONTROL']
+extension-pkg-whitelist = "pydantic"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+skip-string-normalization = true
+
+[tool.isort]
+multi_line_output = 3
+length_sort = true

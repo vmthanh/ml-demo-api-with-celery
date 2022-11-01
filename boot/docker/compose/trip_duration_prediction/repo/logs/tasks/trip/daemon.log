@@ -1,0 +1,82 @@
+[2022-11-01 08:44:15,178: INFO/MainProcess] Connected to redis://redis:6379//
+[2022-11-01 08:44:15,229: INFO/MainProcess] mingle: searching for neighbors
+[2022-11-01 08:44:16,344: INFO/MainProcess] mingle: all alone
+[2022-11-01 08:44:16,405: INFO/MainProcess] celery@9d837a0fb071 ready.
+[2022-11-01 08:44:24,038: INFO/MainProcess] Received task: tasks.trip.tasks.predict_ride[0e968bda-73a5-4df3-bfd2-b18bb6282997]
+[2022-11-01 08:44:24,062: INFO/MainProcess] Task tasks.trip.tasks.predict_ride[0e968bda-73a5-4df3-bfd2-b18bb6282997] succeeded in 0.018634124999152846s: {'duration': 12.785509620119132, 'reply_code': 0, 'timings': {'feature_prepare': 0, 'model_predict': 14}}
+[2022-11-01 08:46:42,290: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 596, in start
+    c.loop(*c.loop_args())
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/asynchronous/hub.py", line 364, in create_loop
+    cb(*cbargs)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 1083, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 354, in on_readable
+    chan.handlers[type]()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 688, in _receive
+    ret.append(self._receive_one(c))
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 698, in _receive_one
+    response = c.parse_response()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/client.py", line 3185, in parse_response
+    response = self._execute(conn, conn.read_response)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/client.py", line 3159, in _execute
+    return command(*args, **kwargs)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 700, in read_response
+    response = self._parser.read_response()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 310, in read_response
+    response = self._buffer.readline()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 242, in readline
+    self._read_from_socket()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 187, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2022-11-01 08:50:11,685: INFO/MainProcess] Connected to redis://redis:6379//
+[2022-11-01 08:50:11,734: INFO/MainProcess] mingle: searching for neighbors
+[2022-11-01 08:50:12,984: INFO/MainProcess] mingle: all alone
+[2022-11-01 08:50:13,047: INFO/MainProcess] celery@a47a05eddc03 ready.
+[2022-11-01 08:50:21,516: INFO/MainProcess] Received task: tasks.trip.tasks.predict_ride[40996c90-1b2b-42ee-8a7f-c7bb0ccc8f01]
+[2022-11-01 08:50:21,547: INFO/MainProcess] Task tasks.trip.tasks.predict_ride[40996c90-1b2b-42ee-8a7f-c7bb0ccc8f01] succeeded in 0.021925541999735287s: {'duration': 12.785509620119132, 'reply_code': 0, 'timings': {'feature_prepare': 0, 'model_predict': 15}}
+[2022-11-01 08:51:24,842: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 596, in start
+    c.loop(*c.loop_args())
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/asynchronous/hub.py", line 364, in create_loop
+    cb(*cbargs)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 1083, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 354, in on_readable
+    chan.handlers[type]()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 688, in _receive
+    ret.append(self._receive_one(c))
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 698, in _receive_one
+    response = c.parse_response()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/client.py", line 3185, in parse_response
+    response = self._execute(conn, conn.read_response)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/client.py", line 3159, in _execute
+    return command(*args, **kwargs)
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 700, in read_response
+    response = self._parser.read_response()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 310, in read_response
+    response = self._buffer.readline()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 242, in readline
+    self._read_from_socket()
+  File "/home/docker/miniconda/envs/venv/lib/python3.8/site-packages/redis/connection.py", line 187, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2022-11-01 08:57:30,996: INFO/MainProcess] Connected to redis://redis:6379//
+[2022-11-01 08:57:31,049: INFO/MainProcess] mingle: searching for neighbors
+[2022-11-01 08:57:32,166: INFO/MainProcess] mingle: all alone
+[2022-11-01 08:57:32,227: INFO/MainProcess] celery@fce5a0f78995 ready.

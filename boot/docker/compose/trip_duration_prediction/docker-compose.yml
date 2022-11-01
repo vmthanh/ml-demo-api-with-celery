@@ -1,0 +1,82 @@
+version: "2.3"
+services:
+
+  web:
+    build:
+      context: "${DC_UNIVERSE}"
+      dockerfile: "${WEB_VM_FILE}"
+      args:
+        VM_BASE: "${WEB_VM_BASE}"
+        VM_USER: "${WEB_VM_USER}"
+        VM_HOME: "${WEB_VM_HOME}"
+        VM_CODE: "${WEB_VM_CODE}"
+        VM_PIP: "${WEB_VM_PIP}"
+    platform: linux/amd64
+    image: ${DOCKER_IMAGE_PROJECT_ROOT_NAME}_web:${COMMIT_ID}
+    ports:
+      - "${HTTP_PORT}:8182"
+    volumes:
+      - "${HOST_REPO_DIR}:${WEB_VM_CODE}/repo"
+    restart: always
+    environment:
+      VERSION: "${WEB_VERSION}"
+      PROJECT_APP: "${WEB_VM_PROJECT_APP}"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "${REDIS_PORT}"
+      CELERY_BROKER_URL: "redis://redis:${REDIS_PORT}"
+      CELERY_RESULT_BACKEND: "redis://redis:${REDIS_PORT}"
+
+  redis:
+    image: redis:latest
+    restart: on-failure
+    expose:
+      - "${REDIS_PORT}"
+    command: redis-server --port "${REDIS_PORT}"
+
+  worker:
+    build:
+      context: "${DC_UNIVERSE}"
+      dockerfile: "${WORKER_VM_FILE}"
+      args:
+        VM_BASE: "${WORKER_VM_BASE}"
+        VM_USER: "${WORKER_VM_USER}"
+        VM_HOME: "${WORKER_VM_HOME}"
+        VM_CODE: "${WORKER_VM_CODE}"
+        VM_CONDA: "${WORKER_VM_CONDA}"
+    platform: linux/amd64
+    volumes:
+      - "${HOST_REPO_DIR}:${WORKER_VM_CODE}/repo"
+    image: ${DOCKER_IMAGE_PROJECT_ROOT_NAME}_worker:${COMMIT_ID}
+    restart: always
+    runtime: nvidia
+    environment:
+      NVIDIA_VISIBLE_DEVICES: "0"
+      PROJECT_APP: "${WORKER_VM_PROJECT_APP}"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "${REDIS_PORT}"
+      CELERY_BROKER_URL: "redis://redis:${REDIS_PORT}"
+      CELERY_RESULT_BACKEND: "redis://redis:${REDIS_PORT}"
+
+  worker_0:
+    extends:
+      service: worker
+    environment:
+      NVIDIA_VISIBLE_DEVICES: "0"
+
+  worker_1:
+    extends:
+      service: worker
+    environment:
+      NVIDIA_VISIBLE_DEVICES: "1"
+
+  worker_2:
+    extends:
+      service: worker
+    environment:
+      NVIDIA_VISIBLE_DEVICES: "2"
+
+  worker_3:
+    extends:
+      service: worker
+    environment:
+      NVIDIA_VISIBLE_DEVICES: "3"
