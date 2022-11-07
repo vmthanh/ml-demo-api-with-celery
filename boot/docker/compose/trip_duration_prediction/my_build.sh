@@ -12,6 +12,7 @@ export HOST_REPO_DIR="${PROJECT_ROOT}/repo"
 CMD="$@"
 DC_FILES="\
     -f ${DC_ROOT}/docker-compose.yml \
+    -f ${DC_ROOT}/docker-compose.dev.yml \
     -f ${DC_ROOT}/docker-compose.cpu.yml"
 DC_ENV_FILE="${DC_ROOT}/.env"
 source "${DC_ROOT}/docker-services.sh" \
