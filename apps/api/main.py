@@ -9,7 +9,7 @@ from core.utilities.cls_loguru_config import loguru_setting
 
 loguru_setting.setup_app_logging()
 
-app = FastAPI(title=config.PROJECT_NAME, version=config.APP_VERSION, root_path='/api')
+app = FastAPI(title=config.PROJECT_NAME, version=config.APP_VERSION)
 
 
 @app.exception_handler(RequestValidationError)
